@@ -1,5 +1,3 @@
-
-````markdown
 # 🔎 Port Scanner in Go
 
 A simple concurrent port scanner written in Go.  
@@ -49,30 +47,6 @@ Port 80 open
 Port 443 open
 
 Scan completed!
-```
-
----
-
-## 📊 Flow Diagram
-
-```mermaid
-flowchart TD
-    A[Start] --> B[Read CLI Arguments]
-    B -->|Check Args| C{Valid Args?}
-    C -->|No| D[Print Usage & Exit]
-    C -->|Yes| E[Parse Host & Port Range]
-    E --> F[Initialize WaitGroup]
-    F --> G[Loop Through Ports]
-    G --> H[Spawn Goroutine isPortOpen()]
-    H --> I{Connection Success?}
-    I -->|Yes| J[Print "Port Open"]
-    I -->|No| K[Ignore & Continue]
-    J --> L[wg.Done()]
-    K --> L[wg.Done()]
-    L --> M[All Goroutines Done?]
-    M -->|No| G
-    M -->|Yes| N[Print "Scan Completed"]
-    N --> O[End]
 ```
 
 ---
